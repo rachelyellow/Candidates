@@ -1,5 +1,7 @@
 const initState = {
-  selected: []
+  candidates: [],
+  selected: [],
+  responses: []
 }
 
 const rootReducer = (state = initState, action) => {

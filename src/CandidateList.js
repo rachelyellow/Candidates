@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Candidate from "./Candidate.js";
+import Candidate from './Candidate.js';
+import { connect } from 'react-redux'
 
 class CandidateList extends Component {
   render() {
@@ -14,4 +15,11 @@ class CandidateList extends Component {
     );
   }
 }
-export default CandidateList;
+
+const mapStateToProps = (state) => {
+  return {
+    selected: state.selected
+  }
+}
+
+export default connect(mapStateToProps)(CandidateList);
