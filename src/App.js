@@ -27,13 +27,19 @@ class App extends Component {
       })
   }
 
+  changeActiveApplicant = (id) => {
+    this.setState({
+      selected: id
+    })
+  }
+
   render () {
     return (
       <div className="App">
         <h1>
           XYZ Company
         </h1>
-        <CandidateList candidates={this.state.candidates} />
+        <CandidateList candidates={this.state.candidates} changeActiveApplicant={this.changeActiveApplicant} />
         <Application selected={this.state.selected} />
       </div>
     );
