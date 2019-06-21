@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
 import './styles/App.css';
+import axios from 'axios';
 import CandidateList from './CandidateList.js';
 
 class App extends Component {
-  componenentWillMount() {
-    console.log("willmount");
+
+  constructor() {
+    super();
+    this.state = {
+      candidates: [],
+      selected: [],
+      responses: []
+    }
+  }
+
+  componentWillMount() {
+    axios.get('http://localhost:3010/candidates')
+      .then(response => {
+        this.setState({
+          candidates: response.data
+        })
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
   }
 
   render () {
@@ -13,7 +32,7 @@ class App extends Component {
         <h1>
           XYZ Company
         </h1>
-        <CandidateList/>
+        <CandidateList candidates={this.state.candidates} />
       </div>
     );
   }
