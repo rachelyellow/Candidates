@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import Nav from 'react-bootstrap/Nav';
 // import { connect } from 'react-redux'
 
 class CandidateList extends Component {
   handleChange = event => {
-    const newSelection = event.target.id;
+    const newSelection = event.target.candidate;
     this.props.changeActiveApplicant(newSelection);
   }
   
@@ -11,10 +12,10 @@ class CandidateList extends Component {
     return (
       <div>
         <h3>Candidates</h3>
-        <ul className="CandidateList">
+        <Nav className="flex-sm-column CandidateList">
           {this.props.candidates.map((candidate, index) =>
-            <li key={index} id={candidate.id} onMouseUp={this.handleChange}>{candidate.id} {candidate.name}</li>)}
-        </ul>
+            <Nav.Link key={index} candidate={candidate.id} onClick={this.handleChange}>{candidate.id} {candidate.name}</Nav.Link>)}
+        </Nav>
       </div>
     );
   }

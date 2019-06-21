@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       candidates: [],
-      selectedApplicant: 0,
+      selectedApplicant: {},
       selectedApplication: { id: 0, videos: [] }
     }
     this.changeActiveApplicant.bind(this);
@@ -28,12 +28,16 @@ class App extends Component {
       })
   }
 
-  changeActiveApplicant = (id) => {
+  changeActiveApplicant = (candidate) => {
     this.setState({
-      selectedApplicant: id
+      selectedApplicant: candidate
     })
-    console.log(id)
+    console.log(candidate)
   }
+
+  // getApplication = () => {
+
+  // }
 
   render() {
     return (
