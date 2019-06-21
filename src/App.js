@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import axios from 'axios';
 import CandidateList from './CandidateList.js';
+import Application from './Application.js';
 
 class App extends Component {
 
@@ -33,6 +34,7 @@ class App extends Component {
           XYZ Company
         </h1>
         <CandidateList candidates={this.state.candidates} />
+        <Application selected={this.state.selected} />
       </div>
     );
   }
