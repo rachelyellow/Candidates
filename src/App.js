@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import axios from 'axios';
-import CandidateList from './CandidateList.js';
-import Application from './Application.js';
+import CandidateList from './CandidateList';
+import Application from './Application';
 
 class App extends Component {
 
@@ -10,12 +10,13 @@ class App extends Component {
     super();
     this.state = {
       candidates: [],
-      selected: [],
-      responses: []
+      selectedApplicant: 0,
+      selectedApplication: { id: 0, videos: [] }
     }
+    this.changeActiveApplicant.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('http://localhost:3010/candidates')
       .then(response => {
         this.setState({
@@ -28,19 +29,20 @@ class App extends Component {
   }
 
   changeActiveApplicant = (id) => {
-    this.setState({
-      selected: id
-    })
+    // this.setState({
+    //   selectedApplicant: id
+    // })
+    console.log(id)
   }
 
-  render () {
+  render() {
     return (
       <div className="App">
         <h1>
           XYZ Company
         </h1>
         <CandidateList candidates={this.state.candidates} changeActiveApplicant={this.changeActiveApplicant} />
-        <Application selected={this.state.selected} />
+        <Application selectedApplicant={this.state.selectedApplicant} selectedApplication={this.state.selectedApplication}/>
       </div>
     );
   }
