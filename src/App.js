@@ -29,9 +29,9 @@ class App extends Component {
   }
 
   changeActiveApplicant = (id) => {
-    // this.setState({
-    //   selectedApplicant: id
-    // })
+    this.setState({
+      selectedApplicant: id
+    })
     console.log(id)
   }
 
