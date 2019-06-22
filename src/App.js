@@ -12,10 +12,11 @@ class App extends Component {
     super();
     this.state = {
       candidates: [],
-      selectedApplicant: {},
-      selectedApplication: { id: 0, videos: [] }
+      selectedCandidate: {},
+      selectedApplication: {}
     }
-    this.changeActiveApplicant.bind(this);
+    // this.changeActiveCandidate.bind(this);
+    this.fetchSelectionData = this.fetchSelectionData.bind(this);
   }
 
   componentDidMount() {
@@ -30,12 +31,24 @@ class App extends Component {
       })
   }
 
-  changeActiveApplicant = (candidate) => {
-    this.setState({
-      selectedApplicant: candidate
-    })
-    console.log(candidate)
+  fetchSelectionData(candidateId) {
+    const selectedCandidate = this.state.candidates.find(candidate => candidate.id == candidateId);
+    this.setState({ selectedCandidate: selectedCandidate })
+    if (selectedCandidate.applicationId) {
+      axios.get('http://localhost:3010/applications/' + selectedCandidate.applicationId)
+        .then(response => {
+          console.log(response.data);
+          this.setState({ selectedApplication: response.data })
+        })
+    } else {
+      this.setState({ selectedApplication: {} })
+    }
   }
+
+  // changeActiveCandidate = (candidateId) => {
+  //   this.fetchSelectionData(candidateId);
+  //   this.setState({ selectedApplication: })
+  // }
 
   // getApplication = () => {
 
@@ -49,8 +62,8 @@ class App extends Component {
             XYZ Company
           </h1>
           <Row>
-            <CandidateList candidates={this.state.candidates} changeActiveApplicant={this.changeActiveApplicant} />
-            <Application selectedApplicant={this.state.selectedApplicant} selectedApplication={this.state.selectedApplication}/>
+            <CandidateList candidates={this.state.candidates} fetchSelectionData={this.fetchSelectionData} />
+            <Application selectedCandidate={this.state.selectedCandidate} selectedApplication={this.state.selectedApplication}/>
           </Row>
         </Tab.Container>
       </div>

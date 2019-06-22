@@ -20,31 +20,30 @@ class Application extends Component {
   }
 
   render() {
-    if (this.props.selectedApplication.id > 0) {
+    if (this.props.selectedApplication.id) {
       return (
         <Col sm={9}>
           <Tab.Content>
-            <h3>{this.props.selectedApplication.id}</h3>
+            <h3>Application Number {this.props.selectedApplication.id}</h3>
             {this.props.selectedApplication.videos.map((video, index) =>
               <Tab.Pane eventKey="1387" key={index}>
                 {video.questionId}
                 <video src={video.src}></video>
                 <Comments comments={video.comments}/>
               </Tab.Pane>)}
-              fet Kelly
           </Tab.Content>
         </Col>
       );
-    } else if (this.props.selectedApplication.id === 0) {
+    } else if (this.props.selectedCandidate.id > 0) {
       return (
-        <Col sm={9}>
-          <h5>Please select a candidate from the left to view their application.</h5>
-        </Col>
+      <Col sm={9}>
+        <h5>This candidate doesn't have an application yet!</h5>
+      </Col>
       );
     }
     return (
         <Col sm={9}>
-          <h5>This candidate doesn't have an application yet!</h5>
+          <h5>Please select a candidate from the left to view their application.</h5>
         </Col>
     );
   }
