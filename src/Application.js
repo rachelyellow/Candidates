@@ -27,11 +27,11 @@ class Application extends Component {
           <Tab.Content>
             <h3>Application Number {this.props.selectedApplication.id}</h3>
             {this.props.selectedApplication.videos.map((video, index) =>
-              <Tab.Pane eventKey="1387" key={index}>
-                {video.questionId}
+              <div key={index}>
+                {video.questionId}{video.src}
                 <video src={video.src}></video>
                 <Comments comments={video.comments}/>
-              </Tab.Pane>)}
+              </div>)}
           </Tab.Content>
         </Col>
       );
