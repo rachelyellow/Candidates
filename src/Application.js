@@ -38,13 +38,13 @@ class Application extends Component {
     } else if (this.props.selectedApplication.id === 0) {
       return (
         <Col sm={9}>
-          <h3>Please select a candidate from the left to view their application.</h3>
+          <h5>Please select a candidate from the left to view their application.</h5>
         </Col>
       );
     }
     return (
         <Col sm={9}>
-          <h3>This candidate doesn't have an application yet!</h3>
+          <h5>This candidate doesn't have an application yet!</h5>
         </Col>
     );
   }

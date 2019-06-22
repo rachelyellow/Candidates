@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 class CandidateList extends Component {
   handleChange = event => {
-    const newSelection = event.target.candidate;
+    const newSelection = event.target.value;
     this.props.changeActiveApplicant(newSelection);
   }
   
@@ -18,7 +18,7 @@ class CandidateList extends Component {
             <Nav.Link 
               key={index}
               eventKey={candidate.id}
-              candidate={candidate.id}
+              value={candidate.id}
               onClick={this.handleChange}>{candidate.id} {candidate.name}</Nav.Link>)}
         </Nav>
       </Col>
