@@ -21,6 +21,7 @@ class Application extends Component {
 
   render() {
     if (this.props.selectedApplication.id) {
+      console.log(this.props.selectedApplication)
       return (
         <Col sm={9}>
           <Tab.Content>

@@ -32,12 +32,11 @@ class App extends Component {
   }
 
   fetchSelectionData(candidateId) {
-    const selectedCandidate = this.state.candidates.find(candidate => candidate.id == candidateId);
+    const selectedCandidate = this.state.candidates.find(candidate => candidate.id === parseInt(candidateId));
     this.setState({ selectedCandidate: selectedCandidate })
     if (selectedCandidate.applicationId) {
       axios.get('http://localhost:3010/applications/' + selectedCandidate.applicationId)
         .then(response => {
-          console.log(response.data);
           this.setState({ selectedApplication: response.data })
         })
     } else {
