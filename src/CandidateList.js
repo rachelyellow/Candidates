@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Nav from 'react-bootstrap/Nav';
+import Col from 'react-bootstrap/Col';
 // import { connect } from 'react-redux'
 
 class CandidateList extends Component {
@@ -10,13 +11,17 @@ class CandidateList extends Component {
   
   render() {
     return (
-      <div>
+      <Col sm={3}>
         <h3>Candidates</h3>
-        <Nav className="flex-sm-column CandidateList">
+        <Nav variant="pills" className="flex-column CandidateList">
           {this.props.candidates.map((candidate, index) =>
-            <Nav.Link key={index} candidate={candidate.id} onClick={this.handleChange}>{candidate.id} {candidate.name}</Nav.Link>)}
+            <Nav.Link 
+              key={index}
+              eventKey={candidate.id}
+              candidate={candidate.id}
+              onClick={this.handleChange}>{candidate.id} {candidate.name}</Nav.Link>)}
         </Nav>
-      </div>
+      </Col>
     );
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Tab from 'react-bootstrap/Tab';
 import CandidateList from './CandidateList';
 import Application from './Application';
 
@@ -42,11 +44,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>
-          XYZ Company
-        </h1>
-        <CandidateList candidates={this.state.candidates} changeActiveApplicant={this.changeActiveApplicant} />
-        <Application selectedApplicant={this.state.selectedApplicant} selectedApplication={this.state.selectedApplication}/>
+        <Tab.Container defaultActiveKey="first">
+          <h1>
+            XYZ Company
+          </h1>
+          <Row>
+            <CandidateList candidates={this.state.candidates} changeActiveApplicant={this.changeActiveApplicant} />
+            <Application selectedApplicant={this.state.selectedApplicant} selectedApplication={this.state.selectedApplication}/>
+          </Row>
+        </Tab.Container>
       </div>
     );
   }

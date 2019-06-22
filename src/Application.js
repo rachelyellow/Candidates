@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Comments from './Comments';
 import axios from 'axios';
+import Col from 'react-bootstrap/Col';
+import Tab from 'react-bootstrap/Tab';
 // import { connect } from 'react-redux'
 
 class Application extends Component {
@@ -20,25 +22,30 @@ class Application extends Component {
   render() {
     if (this.props.selectedApplication.id > 0) {
       return (
-        <div>
-          <h3>{this.props.selectedApplication.id}</h3>
-          <ul className="Application">
+        <Col sm={9}>
+          <Tab.Content>
+            <h3>{this.props.selectedApplication.id}</h3>
             {this.props.selectedApplication.videos.map((video, index) =>
-              <li key={index}>
-              {video.questionId}
-              <video src={video.src}></video>
-              <Comments comments={video.comments}/>
-              </li>)}
-          </ul>
-        </div>
+              <Tab.Pane eventKey="1387" key={index}>
+                {video.questionId}
+                <video src={video.src}></video>
+                <Comments comments={video.comments}/>
+              </Tab.Pane>)}
+              fet Kelly
+          </Tab.Content>
+        </Col>
       );
     } else if (this.props.selectedApplication.id === 0) {
       return (
-        <h3>Please select a candidate from the left to view their application.</h3>
+        <Col sm={9}>
+          <h3>Please select a candidate from the left to view their application.</h3>
+        </Col>
       );
     }
     return (
-      <h3>This candidate doesn't have an application yet!</h3>
+        <Col sm={9}>
+          <h3>This candidate doesn't have an application yet!</h3>
+        </Col>
     );
   }
 }
