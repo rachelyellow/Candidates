@@ -45,12 +45,12 @@ form {
   height: 17%;
   width: 98%;
   padding: 1rem 6rem;
-  margin: 1rem 1% 0;
+  margin: .5% 1% 0;
   color: white;
 }
 
 h5 {
-  margin: 4% 8%;
+  margin: 3% 7%;
 }
 
 a {
@@ -63,6 +63,14 @@ p {
   margin: 1em 3em;
 }
 
+ul {
+  margin-top: 3%;
+}
+
+li {
+  margin: 0 5%;
+}
+
 .card {
   margin: 1% 2% 7%;
 }
@@ -73,7 +81,7 @@ p {
 }
 
 .row {
-  margin: 15% 1% 5%;
+  margin: 18% 1% 5%;
 }
 
 .nav-link {

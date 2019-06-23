@@ -12,7 +12,7 @@ class Application extends Component {
         <Col sm={9}>
           <Tab.Content>
             {this.props.selectedApplication.videos.map((video, index) =>
-              <Card bg="light" text="black" className="submissions" key={index}>
+              <Card bg="dark" text="white" className="submissions" key={index}>
                 <Card.Header><p className="question">{video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}</p></Card.Header>
                 <video controls src={video.src}></video>
                 <Comments
