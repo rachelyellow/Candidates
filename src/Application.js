@@ -9,8 +9,6 @@ class Application extends Component {
 
   render() {
     if (this.props.selectedApplication.id) {
-      // console.log(this.state)
-      // console.log(this.props.selectedApplication)
       return (
         <Col sm={9}>
           <Tab.Content>
@@ -19,7 +17,11 @@ class Application extends Component {
               <div key={index}>
                 {video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}
                 <video controls src={video.src}></video>
-                <Comments comments={video.comments} submission={this.props.selectedApplication} questionId={video.questionId}/>
+                <Comments
+                  comments={video.comments} 
+                  application={this.props.selectedApplication} 
+                  questionId={video.questionId}
+                  addComment={this.props.addComment}/>
               </div>)}
           </Tab.Content>
         </Col>

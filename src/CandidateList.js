@@ -21,7 +21,9 @@ class CandidateList extends Component {
           {this.props.candidates.map((candidate, index) =>
             <Nav.Link 
               key={index}
-              eventKey={candidate.id}>{candidate.id} {candidate.name}</Nav.Link>)}
+              eventKey={candidate.id}>
+                {candidate.id} {candidate.name}
+            </Nav.Link>)}
         </Nav>
       </Col>
     );

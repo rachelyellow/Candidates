@@ -17,6 +17,7 @@ class App extends Component {
       questions: []
     }
     this.fetchSelectionData = this.fetchSelectionData.bind(this);
+    this.addComment = this.addComment.bind(this);
   }
 
   componentDidMount() {
@@ -61,21 +62,53 @@ class App extends Component {
     }
   }
 
-  addComment(applicationId, questionId, comment) {
-    axios.put('http://localhost:3010/applications/' + applicationId, {})
-    .then(response => console.log(response.data))
+  addComment(applicationId, replacementObj) {
+    axios.patch('http://localhost:3010/applications/' + applicationId,
+      { "id": applicationId,
+        "videos": replacementObj }
+    )
+    .then(response => console.log(response))
+    // axios.put('http://localhost:3010/applications/' + 171, 
+    //     {
+    //       "id": 171,
+    //       "videos": [
+    //         {
+    //             "src": "https://dashboard.knockri.com/assets?f=124546.mp4",
+    //             "questionId": 12,
+    //             "comments": "BLAH"
+    //         },
+    //         {
+    //             "src": "https://dashboard.knockri.com/assets?f=32343.mp4",
+    //             "questionId": 14,
+    //             "comments": ""
+    //         },
+    //         {
+    //             "src": "https://dashboard.knockri.com/assets?f=3545646.mp4",
+    //             "questionId": 21,
+    //             "comments": ""
+    //         }
+    //       ]
+    //   }
+    // )
+    // .then(response => console.log(response.data))
   }
 
   render() {
     return (
       <div className="App">
-        <Tab.Container defaultActiveKey="first">
+        <Tab.Container>
           <h1>
             XYZ Company
           </h1>
           <Row>
-            <CandidateList candidates={this.state.candidates} fetchSelectionData={this.fetchSelectionData}/>
-            <Application selectedCandidate={this.state.selectedCandidate} selectedApplication={this.state.selectedApplication} questions={this.state.questions}/>
+            <CandidateList 
+              candidates={this.state.candidates}
+              fetchSelectionData={this.fetchSelectionData}/>
+            <Application
+              selectedCandidate={this.state.selectedCandidate}
+              selectedApplication={this.state.selectedApplication}
+              questions={this.state.questions}
+              addComment={this.addComment}/>
           </Row>
         </Tab.Container>
       </div>
