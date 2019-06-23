@@ -39,7 +39,7 @@ class Application extends Component {
             {this.props.selectedApplication.videos.map((video, index) =>
               <div key={index}>
                 {video.questionId}{video.src}
-                <video src={video.src}></video>
+                <video controls src={video.src}></video>
                 <Comments comments={video.comments}/>
               </div>)}
           </Tab.Content>
