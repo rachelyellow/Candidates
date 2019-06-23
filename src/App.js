@@ -17,8 +17,8 @@ class App extends Component {
       questions: []
     }
     this.fetchSelectionData = this.fetchSelectionData.bind(this);
-    this.fetchQuestions = this.fetchQuestions.bind(this);
-    this.getQuestionObjs = this.getQuestionObjs.bind(this);
+    // this.fetchQuestions = this.fetchQuestions.bind(this);
+    // this.getQuestionObjs = this.getQuestionObjs.bind(this);
   }
 
   componentDidMount() {
@@ -32,38 +32,29 @@ class App extends Component {
         console.log(error)
       })
   }
-
-  getQuestionObjs = (questionIds) => {
-    let allQuestions =[];
-    questionIds.forEach(questionId => {
-      axios.get('http://localhost:3010/questions/' + questionId)
-        .then(response => {
-          allQuestions = allQuestions.concat(response.data)
-          if (allQuestions.length === questionIds.length) {
-            console.log(allQuestions)
-            return(allQuestions);
-          }
-        })
-        .catch(function(error) {
-          console.log(error)
-        })
-    })
-  }
-
-  fetchQuestions = (application) => {
-    const questionIds = application.videos.map(video => video.questionId);
-    this.getQuestionObjs(questionIds)
-  }
   
   fetchSelectionData(candidateId) {
     const selectedCandidate = this.state.candidates.find(candidate => candidate.id === parseInt(candidateId));
     if (selectedCandidate.applicationId) {
       axios.get('http://localhost:3010/applications/' + selectedCandidate.applicationId)
         .then(response => {
-          const questionsData = this.fetchQuestions(response.data)
-          this.setState({ 
-            selectedApplication: response.data, selectedCandidate: selectedCandidate, questions: questionsData
-          }, () => console.log(this.state))
+          const selectedApplication = response.data
+          const questionIds = selectedApplication.videos.map(video => video.questionId)
+          let allQuestions =[];
+          questionIds.forEach(questionId => {
+            axios.get('http://localhost:3010/questions/' + questionId)
+              .then(response => {
+                allQuestions = allQuestions.concat(response.data)
+                if (allQuestions.length === questionIds.length) {
+                  this.setState({ 
+                    selectedApplication: selectedApplication, selectedCandidate: selectedCandidate, questions: allQuestions
+                  }, () => console.log(this.state))
+                }
+              })
+              .catch(function(error) {
+                console.log(error)
+              })
+          })
         })
     } else {
       this.setState({ 
