@@ -8,6 +8,7 @@ class CommentText extends Component {
       const individualComments = this.props.comments.split("|");
       return (
         <ul>
+          Comments:
           {individualComments.map((comment, index) => <li key={index}>{comment}</li>)}
         </ul>
       );
