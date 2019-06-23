@@ -12,10 +12,8 @@ class Application extends Component {
   render() {
     if (this.props.selectedApplication.id) {
       return (
-        <Col sm={9}>
+        <Col sm={10}>
           <Tab.Content>
-            <h2>{this.props.selectedCandidate.name}</h2>
-            <h6>Application #{this.props.selectedApplication.id}</h6>
             {this.props.selectedApplication.videos.map((video, index) =>
               <Card bg="dark" text="white" className="submissions" key={index}>
                 <Card.Header><p className="question">{video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}</p></Card.Header>

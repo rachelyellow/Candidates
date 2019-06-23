@@ -34,14 +34,15 @@ form {
   padding: 1em;
 }
 
-h1 {
+#top {
   background: white;
   position: fixed;
   z-index: 10000;
   top: 0;
   left: 0;
-  height: 13%;
+  height: 15%;
   width: 100%;
+  padding: 1rem 6rem;
 }
 
 h5 {
@@ -58,8 +59,13 @@ p {
   margin: 1em 3em;
 }
 
+.card {
+  margin-left: 1%;
+  margin-bottom: 2rem;
+}
+
 .row {
-  margin-top: 10%;
+  margin: 14% 1% 5%;
 }
 
 .nav-link {

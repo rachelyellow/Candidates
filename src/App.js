@@ -97,9 +97,10 @@ class App extends Component {
     return (
       <div className="App">
         <Tab.Container>
-          <h1>
-            XYZ Company
-          </h1>
+          <div id="top">
+            <h1>{this.state.selectedCandidate.name}</h1>
+            <h4 id="applicationNumber">{this.state.selectedApplication.id}</h4>
+          </div>
           <Row>
             <CandidateList 
               candidates={this.state.candidates}
