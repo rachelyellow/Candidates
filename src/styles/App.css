@@ -75,11 +75,6 @@ li {
   margin: 1% 2% 7%;
 }
 
-.submissions:hover: {
-  filter: brightness(50%);
-  color: black;
-}
-
 .row {
   margin: 18% 1% 5%;
 }

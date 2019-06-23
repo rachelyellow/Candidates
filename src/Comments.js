@@ -8,6 +8,9 @@ class Comments extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  forceUpdateHandler = () => {
+    this.forceUpdate();
+  }
 
   handleSubmit = event => {
     event.preventDefault()
@@ -27,6 +30,7 @@ class Comments extends Component {
       this.props.addComment(this.props.application.id, replace);
 
       // NEEDS TO REFRESH COMMENTS TO SHOW AUTOMATICALLY
+      // this.forceUpdateHandler()
       // this.forceUpdate()
       // this.setState({ state: this.state });
     }
@@ -38,12 +42,12 @@ class Comments extends Component {
         <CommentText comments={this.props.comments}/>
         <form onSubmit={this.handleSubmit}>
           <textarea name="text" placeholder="Add a comment..." onChange={this.updateInput}></textarea>
-          <input type="submit" value="Save"></input>
+          <input onClick={this.forceUpdateHandler} type="submit" value="Save"></input>
         </form>
       </div>
     );
   }
 }
 
-// {/* <p>{this.props.comments ? this.props.comments : null}</p> */}
+
 export default Comments;
