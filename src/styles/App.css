@@ -34,7 +34,7 @@ form {
 
 #top {
   /* background: #2c78e2; */
-  background: linear-gradient(#2c78e2, transparent, transparent), url("../img/skyscraper_cover.jpg") no-repeat center; 
+  background: linear-gradient(#2866bd, transparent, transparent), url("../img/skyscraper_cover.jpg") no-repeat center; 
   background-size: cover; 
   opacity: 0.95;
   box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8); 
@@ -44,9 +44,13 @@ form {
   left: 0;
   height: 17%;
   width: 98%;
-  padding: 1rem 6rem;
+  padding: 1rem 4rem;
   margin: .5% 1% 0;
   color: white;
+}
+
+h1, h4 {
+  float: right;
 }
 
 h5 {

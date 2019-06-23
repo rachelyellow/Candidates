@@ -42,7 +42,7 @@ class Comments extends Component {
         <CommentText comments={this.props.comments}/>
         <form onSubmit={this.handleSubmit}>
           <textarea name="text" placeholder="Add a comment..." onChange={this.updateInput}></textarea>
-          <input onClick={this.forceUpdateHandler} type="submit" value="Save"></input>
+          <input onClick={this.forceUpdateHandler.bind(this)} type="submit" value="Save"></input>
         </form>
       </div>
     );
