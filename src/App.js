@@ -17,6 +17,8 @@ class App extends Component {
       questions: []
     }
     this.fetchSelectionData = this.fetchSelectionData.bind(this);
+    this.fetchQuestions = this.fetchQuestions.bind(this);
+    this.getQuestionObjs = this.getQuestionObjs.bind(this);
   }
 
   componentDidMount() {
@@ -31,44 +33,44 @@ class App extends Component {
       })
   }
 
+  getQuestionObjs = (questionIds) => {
+    let allQuestions =[];
+    questionIds.forEach(questionId => {
+      axios.get('http://localhost:3010/questions/' + questionId)
+        .then(response => {
+          allQuestions = allQuestions.concat(response.data)
+          if (allQuestions.length === questionIds.length) {
+            console.log(allQuestions)
+            return(allQuestions);
+          }
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    })
+  }
+
+  fetchQuestions = (application) => {
+    const questionIds = application.videos.map(video => video.questionId);
+    this.getQuestionObjs(questionIds)
+  }
+  
   fetchSelectionData(candidateId) {
     const selectedCandidate = this.state.candidates.find(candidate => candidate.id === parseInt(candidateId));
     if (selectedCandidate.applicationId) {
       axios.get('http://localhost:3010/applications/' + selectedCandidate.applicationId)
         .then(response => {
+          const questionsData = this.fetchQuestions(response.data)
           this.setState({ 
-            selectedApplication: response.data, selectedCandidate: selectedCandidate
-          })
+            selectedApplication: response.data, selectedCandidate: selectedCandidate, questions: questionsData
+          }, () => console.log(this.state))
         })
     } else {
       this.setState({ 
-        selectedApplication: {}, selectedCandidate: selectedCandidate
+        selectedApplication: {}, selectedCandidate: selectedCandidate, questions: []
       })
     }
   }
-
-  // getQuestionObj = (questionId) => {
-  //   axios.get('http://localhost:3010/questions/' + questionId)
-  //   .then(response => {
-  //     return response.data
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error)
-  //   })
-  // }
-
-  // fetchQuestions = () => {
-  //   if (this.state.selectedApplication.id) {
-  //     const questionIds = this.props.selectedApplication.videos.map(video => video.questionId);
-  //     let allQuestions =[];
-  //     questionIds.forEach(id => {
-  //       allQuestions.push(getQuestionObj(id));
-  //       console.log(allQuestions)
-  //     });
-  //     // const allQuestions = questionIds.map(questionId => getQuestionObj(questionId));
-  //     console.log(allQuestions);
-  //   }
-  // }
 
   render() {
     return (
@@ -78,7 +80,7 @@ class App extends Component {
             XYZ Company
           </h1>
           <Row>
-            <CandidateList candidates={this.state.candidates} fetchSelectionData={this.fetchSelectionData} />
+            <CandidateList candidates={this.state.candidates} fetchSelectionData={this.fetchSelectionData}/>
             <Application selectedCandidate={this.state.selectedCandidate} selectedApplication={this.state.selectedApplication}/>
           </Row>
         </Tab.Container>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Comments from './Comments';
-import axios from 'axios';
+// import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 // import { connect } from 'react-redux'
