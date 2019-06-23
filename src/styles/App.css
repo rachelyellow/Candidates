@@ -3,7 +3,8 @@
 }
 
 video {
-  width: 80%;
+  /* max-height: 55%; */
+  max-width: 80%;
 }
 
 /* .App-header {

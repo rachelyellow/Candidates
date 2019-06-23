@@ -7,21 +7,31 @@ import Tab from 'react-bootstrap/Tab';
 
 class Application extends Component {
 
-  componentWillMount() {
-    axios.get('http://localhost:3010/applications')
-    .then(response => {
-      this.setState({
-        responses: response.data
-      })
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
-  }
+  // componentWillMount() {
+
+  // }
+
+  // static getDerivedStateFromProps(props, state) {
+  //   return null
+  // }
+
+  // getAllQuestions = questionIds => questionIds.forEach(id => {
+  //   axios.get('http://localhost:3010/questions/' + questionId)
+  //   .then(response => {
+  //     console.log(response.data)
+  //     return response.data
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error)
+  //   })
+  // })
+
+
 
   render() {
     if (this.props.selectedApplication.id) {
-      console.log(this.props.selectedApplication)
+      // console.log(this.state)
+      // console.log(this.props.selectedApplication)
       return (
         <Col sm={9}>
           <Tab.Content>

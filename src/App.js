@@ -13,9 +13,9 @@ class App extends Component {
     this.state = {
       candidates: [],
       selectedCandidate: {},
-      selectedApplication: {}
+      selectedApplication: {},
+      questions: []
     }
-    // this.changeActiveCandidate.bind(this);
     this.fetchSelectionData = this.fetchSelectionData.bind(this);
   }
 
@@ -33,24 +33,41 @@ class App extends Component {
 
   fetchSelectionData(candidateId) {
     const selectedCandidate = this.state.candidates.find(candidate => candidate.id === parseInt(candidateId));
-    this.setState({ selectedCandidate: selectedCandidate })
     if (selectedCandidate.applicationId) {
       axios.get('http://localhost:3010/applications/' + selectedCandidate.applicationId)
         .then(response => {
-          this.setState({ selectedApplication: response.data })
+          this.setState({ 
+            selectedApplication: response.data, selectedCandidate: selectedCandidate
+          })
         })
     } else {
-      this.setState({ selectedApplication: {} })
+      this.setState({ 
+        selectedApplication: {}, selectedCandidate: selectedCandidate
+      })
     }
   }
 
-  // changeActiveCandidate = (candidateId) => {
-  //   this.fetchSelectionData(candidateId);
-  //   this.setState({ selectedApplication: })
+  // getQuestionObj = (questionId) => {
+  //   axios.get('http://localhost:3010/questions/' + questionId)
+  //   .then(response => {
+  //     return response.data
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error)
+  //   })
   // }
 
-  // getApplication = () => {
-
+  // fetchQuestions = () => {
+  //   if (this.state.selectedApplication.id) {
+  //     const questionIds = this.props.selectedApplication.videos.map(video => video.questionId);
+  //     let allQuestions =[];
+  //     questionIds.forEach(id => {
+  //       allQuestions.push(getQuestionObj(id));
+  //       console.log(allQuestions)
+  //     });
+  //     // const allQuestions = questionIds.map(questionId => getQuestionObj(questionId));
+  //     console.log(allQuestions);
+  //   }
   // }
 
   render() {
