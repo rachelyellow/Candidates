@@ -15,7 +15,7 @@ class CandidateList extends Component {
   
   render() {
     return (
-      <Col sm={2} className="CandidateList">
+      <Col sm={3} className="CandidateList">
         <h3>Candidates</h3>
         <Nav variant="pills" className="flex-column CandidateList" onSelect={event => this.handleChange(event)}>
           {this.props.candidates.map((candidate, index) =>

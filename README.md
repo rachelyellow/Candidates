@@ -1,3 +1,13 @@
+SETUP INSTRUCTIONS********
+
+ANSWER:
+How did you decide which technologies to use as part of your solution?
+Are there any improvements you could make to your submission?
+What would you do differently if you were allocated more time?
+
+
+####################
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

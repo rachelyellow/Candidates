@@ -1,21 +1,18 @@
 import React, {Component} from 'react';
 import Comments from './Comments';
-// import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-// import { connect } from 'react-redux'
 
 class Application extends Component {
 
   render() {
     if (this.props.selectedApplication.id) {
       return (
-        <Col sm={10}>
+        <Col sm={9}>
           <Tab.Content>
             {this.props.selectedApplication.videos.map((video, index) =>
-              <Card bg="dark" text="white" className="submissions" key={index}>
+              <Card bg="light" text="black" className="submissions" key={index}>
                 <Card.Header><p className="question">{video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}</p></Card.Header>
                 <video controls src={video.src}></video>
                 <Comments
