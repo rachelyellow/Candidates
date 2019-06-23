@@ -17,8 +17,6 @@ class App extends Component {
       questions: []
     }
     this.fetchSelectionData = this.fetchSelectionData.bind(this);
-    // this.fetchQuestions = this.fetchQuestions.bind(this);
-    // this.getQuestionObjs = this.getQuestionObjs.bind(this);
   }
 
   componentDidMount() {
@@ -63,6 +61,11 @@ class App extends Component {
     }
   }
 
+  addComment(applicationId, questionId, comment) {
+    axios.put('http://localhost:3010/applications/' + applicationId, {})
+    .then(response => console.log(response.data))
+  }
+
   render() {
     return (
       <div className="App">
@@ -72,7 +75,7 @@ class App extends Component {
           </h1>
           <Row>
             <CandidateList candidates={this.state.candidates} fetchSelectionData={this.fetchSelectionData}/>
-            <Application selectedCandidate={this.state.selectedCandidate} selectedApplication={this.state.selectedApplication}/>
+            <Application selectedCandidate={this.state.selectedCandidate} selectedApplication={this.state.selectedApplication} questions={this.state.questions}/>
           </Row>
         </Tab.Container>
       </div>

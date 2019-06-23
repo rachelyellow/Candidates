@@ -7,27 +7,6 @@ import Tab from 'react-bootstrap/Tab';
 
 class Application extends Component {
 
-  // componentWillMount() {
-
-  // }
-
-  // static getDerivedStateFromProps(props, state) {
-  //   return null
-  // }
-
-  // getAllQuestions = questionIds => questionIds.forEach(id => {
-  //   axios.get('http://localhost:3010/questions/' + questionId)
-  //   .then(response => {
-  //     console.log(response.data)
-  //     return response.data
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error)
-  //   })
-  // })
-
-
-
   render() {
     if (this.props.selectedApplication.id) {
       // console.log(this.state)
@@ -38,9 +17,9 @@ class Application extends Component {
             <h3>Application Number {this.props.selectedApplication.id}</h3>
             {this.props.selectedApplication.videos.map((video, index) =>
               <div key={index}>
-                {video.questionId}{video.src}
+                {video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}
                 <video controls src={video.src}></video>
-                <Comments comments={video.comments}/>
+                <Comments comments={video.comments} submission={this.props.selectedApplication} questionId={video.questionId}/>
               </div>)}
           </Tab.Content>
         </Col>

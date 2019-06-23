@@ -4,11 +4,21 @@ import CommentsText from './CommentsText';
 
 class Comments extends Component {
 
+  constructor(props) {
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    console.log(this.props)
+  }
+
   render() {
     return (
       <div>
         <CommentsText comments={this.props.comments}/>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <textarea placeholder="Add a comment..."></textarea>
           <input type="submit" value="Save"></input>
         </form>
