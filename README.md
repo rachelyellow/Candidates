@@ -13,7 +13,7 @@
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to start the app.
 
-####Additional Information
+##Additional Information
 
 ###### How did you decide which technologies to use as part of your solution?
 
