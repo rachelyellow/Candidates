@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Card from 'react-bootstrap/Card'
 
 class Comments extends Component {
 
@@ -32,7 +33,7 @@ class Comments extends Component {
   render() {
     return (
       <div>
-        {this.props.comments ? this.props.comments : null}
+        <Card.Text>{this.props.comments ? this.props.comments : null}</Card.Text>
         <form onSubmit={this.handleSubmit}>
           <textarea name="text" placeholder="Add a comment..." onChange={this.updateInput}></textarea>
           <input type="submit" value="Save"></input>

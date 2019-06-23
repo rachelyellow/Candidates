@@ -2,32 +2,84 @@
 
 }
 
+body {
+  background: #c6deef;
+}
+
 video {
   /* max-height: 55%; */
-  max-width: 80%;
-  left: 0;
+  max-width: 90%;
+  /* left: 0;
+  padding: 10%; */
+  margin: 1em auto;
 }
 
 textarea {
-  width: 65%;
+  width: 75%;
   padding: 10px;
-  margin-right: 3em;
+  margin-left: 3.5%;
 }
 
 input {
-  padding: 0.5em 1em;
+  padding: 1.5% 3%;
   border: 1px solid black;
-  border-radius: 0.5em;
+  border-radius: 0.8em;
   float: right;
-  margin-top: 1em;
+  margin: 2% 3.5% 2% 2%;
+  /* margin-right: 3.5%;
+  margin-top: 1.5%; */
 }
 
 form {
-  padding: 2em 1em;
+  padding: 1em;
+}
+
+h1 {
+  background: white;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  height: 13%;
+  width: 100%;
+}
+
+h5 {
+  margin: auto;
+}
+
+a {
+  color: #6940b7;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+p {
+  margin: 1em 3em;
+}
+
+.row {
+  margin-top: 10%;
+}
+
+.nav-link {
+  display: block;
+  padding: .4rem .6rem;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #37393d;
 }
 
 .question {
-  /* padding-right: 2em; */
+  font-size: 1.5rem;
+  margin: auto 1rem;
+}
+
+.CandidateList {
+  /* min-width: 15%; */
+  /* max-width: 25%; */
 }
 
 /* .App-header {
