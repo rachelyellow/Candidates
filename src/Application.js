@@ -12,7 +12,8 @@ class Application extends Component {
       return (
         <Col sm={9}>
           <Tab.Content>
-            <h3>Application Number {this.props.selectedApplication.id}</h3>
+            <h2>{this.props.selectedCandidate.name}</h2>
+            <p>Application Number {this.props.selectedApplication.id}</p>
             {this.props.selectedApplication.videos.map((video, index) =>
               <div className="submissions" key={index}>
                 <h4 className="question">{video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}</h4>
