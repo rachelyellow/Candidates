@@ -5,11 +5,28 @@
 video {
   /* max-height: 55%; */
   max-width: 80%;
+  left: 0;
 }
 
 textarea {
   width: 65%;
   padding: 10px;
+  margin-right: 3em;
+}
+
+input {
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  /* margin-bottom: 2em; */
+}
+
+form {
+  padding: 2em 1em;
+}
+
+.question {
+  /* padding-right: 2em; */
 }
 
 /* .App-header {

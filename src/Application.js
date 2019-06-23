@@ -14,8 +14,8 @@ class Application extends Component {
           <Tab.Content>
             <h3>Application Number {this.props.selectedApplication.id}</h3>
             {this.props.selectedApplication.videos.map((video, index) =>
-              <div key={index}>
-                {video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}
+              <div className="submissions" key={index}>
+                <h4 className="question">{video.questionId}. {this.props.questions.find(question => question.id === video.questionId).question}</h4>
                 <video controls src={video.src}></video>
                 <Comments
                   comments={video.comments} 
