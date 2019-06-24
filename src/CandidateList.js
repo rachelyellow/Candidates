@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Col from 'react-bootstrap/Col';
-// import { connect } from 'react-redux'
 
 class CandidateList extends Component {
   constructor(props) {
@@ -30,13 +29,5 @@ class CandidateList extends Component {
   }
 }
 
-// this.props.candidates.length ? (<p>Loading...</p>) : 
 
-// const mapStateToProps = (state) => {
-//   return {
-//     selected: state.selected
-//   }
-// }
-
-// export default connect(mapStateToProps)(CandidateList);
 export default CandidateList;

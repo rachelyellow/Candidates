@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import CandidateList from './CandidateList';
 import Application from './Application';
@@ -73,29 +72,6 @@ class App extends Component {
         "videos": replacementObj }
     )
     .then(response => this.setState({ selectedApplication: response.data }))
-    // axios.put('http://localhost:3010/applications/' + 171, 
-    //     {
-    //       "id": 171,
-    //       "videos": [
-    //         {
-    //             "src": "https://dashboard.knockri.com/assets?f=124546.mp4",
-    //             "questionId": 12,
-    //             "comments": ""
-    //         },
-    //         {
-    //             "src": "https://dashboard.knockri.com/assets?f=32343.mp4",
-    //             "questionId": 14,
-    //             "comments": ""
-    //         },
-    //         {
-    //             "src": "https://dashboard.knockri.com/assets?f=3545646.mp4",
-    //             "questionId": 21,
-    //             "comments": ""
-    //         }
-    //       ]
-    //   }
-    // )
-    // .then(response => console.log(response.data))
   }
 
   render() {

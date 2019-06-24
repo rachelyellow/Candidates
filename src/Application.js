@@ -35,13 +35,5 @@ class Application extends Component {
   }
 }
 
-// this.props.candidates.length ? (<p>Loading...</p>) : 
 
-// const mapStateToProps = (state) => {
-//   return {
-//     selected: state.selected
-//   }
-// }
-
-// export default connect(mapStateToProps)(Application);
 export default Application;

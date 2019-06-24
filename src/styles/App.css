@@ -1,7 +1,3 @@
-.App {
-
-}
-
 body {
   background: #c6deef;
 }
@@ -24,8 +20,6 @@ input {
   border-radius: 0.8em;
   float: right;
   margin: 1.5% 3.5% 4% 2%;
-  /* margin-right: 3.5%;
-  margin-top: 1.5%; */
 }
 
 form {
@@ -106,19 +100,3 @@ li {
   font-size: 1.5rem;
   margin: auto 3rem;
 }
-
-.CandidateList {
-  /* min-width: 15%; */
-  /* max-width: 25%; */
-}
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */

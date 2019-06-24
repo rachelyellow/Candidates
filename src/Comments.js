@@ -40,7 +40,9 @@ class Comments extends Component {
       <div>
         <CommentText comments={this.props.comments}/>
         <form onSubmit={this.handleSubmit}>
-          <textarea name="text" placeholder="Add a comment..." onChange={this.updateInput}></textarea>
+          {this.props.comments === "" ? 
+          <textarea name="text" placeholder="Add a comment..." onChange={this.updateInput}></textarea> : 
+          <textarea name="text" placeholder="Add another comment..." onChange={this.updateInput}></textarea>}
           <input onClick={this.forceUpdateHandler.bind(this)} type="submit" value="Save"></input>
         </form>
       </div>
