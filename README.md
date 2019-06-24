@@ -17,7 +17,12 @@
 
 ###### How did you decide which technologies to use as part of your solution?
 
-React and plain JavaScript are the main requirements for this project. As I created my wire frames I decided that this scenario would work best as a single-page application. I did not use redux because I did not see the need for it in this app at its current state. I also did not see the need for other frameworks/libraries, as in my opinion React is powerful enough to get the job done. In the future, if I was to further build on this project I would consider using Redux for state management.
+- React and plain JavaScript are the main requirements for this project.
+- As I created my wire frames I decided that this scenario would work best as a single-page application.
+- I did not use redux because I did not see the need for it in this app at its current state.
+- I also did not see the need for other middleware frameworks/libraries, as in my opinion React is powerful enough to get the job done. 
+- I chose to use Bootstrap to help with the styling of the components as I saw fit for the application.
+- In the future, if I was to further build on this project I would consider using Redux for state management.
 
 ###### Are there any improvements you could make to your submission?
 - I could add timestamps to the comments

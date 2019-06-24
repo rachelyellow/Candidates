@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Tab from 'react-bootstrap/Tab';
 import CandidateList from './CandidateList';
 import Application from './Application';
@@ -59,6 +60,7 @@ class App extends Component {
           })
         })
     } else {
+      // if the selected candidate currently has no application, set selectedApplication to an empty object and show appropriate message
       this.setState({ 
         selectedApplication: {}, selectedCandidate: selectedCandidate, questions: []
       })
@@ -100,9 +102,9 @@ class App extends Component {
     return (
       <div className="App">
         <Tab.Container>
-          <div id="top">
-            <h1>{this.state.selectedCandidate.name}</h1>
-            <h4 id="applicationNumber">{this.state.selectedApplication.id}</h4>
+          <div id="topBanner">
+            <p id="name">{this.state.selectedCandidate.name}</p>
+            {this.state.selectedApplication.id ? <p id="applicationNumber">Application Number {this.state.selectedApplication.id}</p> : null}
           </div>
           <Row>
             <CandidateList 
