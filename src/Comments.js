@@ -13,14 +13,15 @@ class Comments extends Component {
   }
 
   handleSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     let textInput = event.target.elements.text.value.trim();
     if (textInput.length > 0) {
-      // create new object to replace existing position
+      // create new video array for patch request
       let replace = this.props.application.videos;
   
-      // find the submitted video to updated with new comment
+      // find the submitted video in the array to updated with new comment
       let submission = this.props.application.videos.find(submission => submission.questionId === this.props.questionId);
+
       // find index of submitted video and update with the new comment
       const position = replace.indexOf(submission)
       if (replace[position].comments.length > 0) {
@@ -33,7 +34,7 @@ class Comments extends Component {
       event.target.elements.text.value = "";
       this.props.addComment(this.props.application.id, replace);
     }
-  }
+  };
 
   render() {
     return (
