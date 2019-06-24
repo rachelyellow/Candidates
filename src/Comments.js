@@ -23,16 +23,15 @@ class Comments extends Component {
       let submission = this.props.application.videos.find(submission => submission.questionId === this.props.questionId);
       // find index of submitted video and update with the new comment
       const position = replace.indexOf(submission)
-      replace[position].comments = submission.comments + "|" + textInput;
+      if (replace[position].comments.length > 0) {
+        replace[position].comments = submission.comments + "|" + textInput;
+      } else {
+        replace[position].comments = textInput;
+      };
   
-      // empty textarea after submitting comment
+      // empty textarea after submitting comment, update current application with new comment
       event.target.elements.text.value = "";
       this.props.addComment(this.props.application.id, replace);
-
-      // NEEDS TO REFRESH COMMENTS TO SHOW AUTOMATICALLY
-      // this.forceUpdateHandler()
-      // this.forceUpdate()
-      // this.setState({ state: this.state });
     }
   }
 

@@ -34,20 +34,23 @@ class App extends Component {
   
   fetchSelectionData(candidateId) {
     const selectedCandidate = this.state.candidates.find(candidate => candidate.id === parseInt(candidateId));
+    // check if selected candidate has submitted any video responses
     if (selectedCandidate.applicationId) {
       axios.get('http://localhost:3010/applications/' + selectedCandidate.applicationId)
         .then(response => {
           const selectedApplication = response.data
+          // make an array with all the questionIds from the selected application to get the question objects
           const questionIds = selectedApplication.videos.map(video => video.questionId)
           let allQuestions =[];
           questionIds.forEach(questionId => {
             axios.get('http://localhost:3010/questions/' + questionId)
               .then(response => {
                 allQuestions = allQuestions.concat(response.data)
+                // when all question objects are retrieved, update the state to send the data to application component and render
                 if (allQuestions.length === questionIds.length) {
                   this.setState({ 
                     selectedApplication: selectedApplication, selectedCandidate: selectedCandidate, questions: allQuestions
-                  }, () => console.log(this.state))
+                  })
                 }
               })
               .catch(function(error) {
@@ -67,7 +70,7 @@ class App extends Component {
       { "id": applicationId,
         "videos": replacementObj }
     )
-    .then(response => console.log(response))
+    .then(response => this.setState({ selectedApplication: response.data }))
     // axios.put('http://localhost:3010/applications/' + 171, 
     //     {
     //       "id": 171,
@@ -75,7 +78,7 @@ class App extends Component {
     //         {
     //             "src": "https://dashboard.knockri.com/assets?f=124546.mp4",
     //             "questionId": 12,
-    //             "comments": "BLAH"
+    //             "comments": ""
     //         },
     //         {
     //             "src": "https://dashboard.knockri.com/assets?f=32343.mp4",
