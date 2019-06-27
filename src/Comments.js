@@ -8,10 +8,6 @@ class Comments extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  forceUpdateHandler = () => {
-    this.forceUpdate();
-  }
-
   handleSubmit = event => {
     event.preventDefault();
     let textInput = event.target.elements.text.value.trim();
@@ -19,7 +15,7 @@ class Comments extends Component {
       // create new video array for patch request
       let replace = this.props.application.videos;
   
-      // find the submitted video in the array to updated with new comment
+      // find the submitted video in the array to be updated with new comment
       let submission = this.props.application.videos.find(submission => submission.questionId === this.props.questionId);
 
       // find index of submitted video and update with the new comment
@@ -44,7 +40,7 @@ class Comments extends Component {
           {this.props.comments === "" ? 
           <textarea name="text" placeholder="Add a comment..." onChange={this.updateInput}></textarea> : 
           <textarea name="text" placeholder="Add another comment..." onChange={this.updateInput}></textarea>}
-          <input onClick={this.forceUpdateHandler.bind(this)} type="submit" value="Save"></input>
+          <input type="submit" value="Save"></input>
         </form>
       </div>
     );
