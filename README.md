@@ -1,6 +1,12 @@
 # Candidates
 
-![Demo](./src/img/candidates-demo.gif)
+## Purpose
+
+Hiring managers can use this app to browse through video responses submitted by job applicants. For each submitted video response, users will be able to view the corresponding question and add comments to help with their selection process.
+
+### Demo
+
+<img src="/src/img/candidates-demo.gif" width="85%">
 
 ## Setup Instructions
 
