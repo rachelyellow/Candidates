@@ -1,5 +1,7 @@
 # Candidates
 
+![Demo](./src/img/candidates-demo.gif)
+
 ## Setup Instructions
 
 1. Navigate to your API folder and run `npm start` in your terminal. 
