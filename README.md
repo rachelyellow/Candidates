@@ -8,7 +8,7 @@ Hiring managers can use this app to browse through video responses submitted by 
 
 <img src="/src/img/candidates-demo.gif" width="85%">
 
-## Setup Instructions
+## Getting Started
 
 1. Navigate to your API folder and run `npm start` in your terminal. 
 ***Note: the API is not included in this repository! You can download the original API [here](https://github.com/KnockriInc/react-assessment).
